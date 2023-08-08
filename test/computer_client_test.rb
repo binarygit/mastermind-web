@@ -1,5 +1,4 @@
 require "test-unit"
-require_relative "../move"
 require_relative "../client"
 require_relative "../computer_client"
 
@@ -19,7 +18,6 @@ class TestComputerClient < Test::Unit::TestCase
   def test_make_move
     move = @computer_client.make_move
     assert move
-    assert move.value
-    assert_equal 6, move.value.length
+    assert_equal 6, move.length
   end
 end

@@ -8,8 +8,7 @@ class HumanClient < Client
 
       form.addEventListener("submit") do |ev|
         ev.call(:preventDefault)
-        value = document.getElementById('move-input')[:value]
-        move = Move.new(value: value)
+        move = document.getElementById('move-input')[:value]
         @game_server.continue(move)
       end
     end

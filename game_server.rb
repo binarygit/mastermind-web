@@ -20,7 +20,7 @@ class GameServer
   end
 
   def continue(move)
-    puts move.value
+    puts move
   end
 end
 

@@ -6,6 +6,7 @@ class GameServer
   def initialize
     @document = JS.global[:document]
     @form = document.getElementById "main-form"
+    @board = Board.new
     current_url = JS.global[:window][:location][:href]
     if current_url.to_s.match?(/breaker=true/)
       @code_maker   = ComputerClient.new
@@ -15,11 +16,12 @@ class GameServer
   end
 
   def start
-    @code_maker.make_move
+    @board.master_code = @code_maker.make_move
     @code_breaker.make_move
   end
 
   def continue(move)
+    puts @board.master_code?(move)
     puts move
   end
 end
